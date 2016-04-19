@@ -1,0 +1,26 @@
+From 5a360b98fe4842cedba3d1ab300ca8e9abf74961 Mon Sep 17 00:00:00 2001
+From: Alexander van der Meij <alexandervdm@gliese.me>
+Date: Tue, 19 Apr 2016 11:11:07 +0200
+Subject: [PATCH] use regular background for screensaver lock screen
+
+---
+ src/gs-manager.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/gs-manager.c b/src/gs-manager.c
+index a77ebd7..82cfb66 100644
+--- a/src/gs-manager.c
++++ b/src/gs-manager.c
+@@ -1054,7 +1054,8 @@ gs_manager_init (GSManager *manager)
+ 					  G_CALLBACK (on_bg_changed),
+ 					  manager);
+ 
+-	mate_bg_load_from_system_preferences (manager->priv->bg);
++    // use regular background for screensaver lock screen:
++    mate_bg_load_from_preferences (manager->priv->bg);
+ }
+ 
+ static void
+-- 
+2.7.3
+
