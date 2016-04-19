@@ -1,0 +1,149 @@
+From 77f4636790cbb2131baa917a0b151be7fd255644 Mon Sep 17 00:00:00 2001
+From: Alexander van der Meij <alexandervdm@gliese.me>
+Date: Tue, 19 Apr 2016 07:39:30 +0200
+Subject: [PATCH] Revert "add preferences-categories.menu from m-c-c"
+
+This reverts commit 89c9254d78764a2e21d4fbe3d7f5775d69b0113d.
+---
+ layout/Makefile.am                      |   3 +-
+ layout/mate-preferences-categories.menu | 114 --------------------------------
+ 2 files changed, 1 insertion(+), 116 deletions(-)
+ delete mode 100644 layout/mate-preferences-categories.menu
+
+diff --git a/layout/Makefile.am b/layout/Makefile.am
+index 239005f..f6ab8e6 100644
+--- a/layout/Makefile.am
++++ b/layout/Makefile.am
+@@ -2,8 +2,7 @@ menudir = $(sysconfdir)/xdg/menus
+ 
+ menu_DATA = \
+ 	mate-applications.menu \
+-	mate-settings.menu \
+-	mate-preferences-categories.menu
++	mate-settings.menu
+ 
+ EXTRA_DIST= $(menu_DATA)
+ 
+diff --git a/layout/mate-preferences-categories.menu b/layout/mate-preferences-categories.menu
+deleted file mode 100644
+index bd89726..0000000
+--- a/layout/mate-preferences-categories.menu
++++ /dev/null
+@@ -1,114 +0,0 @@
+-<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+-  "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+-
+-<Menu>
+-  <Name>Preferences</Name>
+- 
+-  <Menu>
+-    <Name>Personal</Name>
+-    <Directory>mate-personal.directory</Directory>
+-    <Include>
+-      <And>
+-        <Category>Settings</Category>
+-        <Category>X-MATE-PersonalSettings</Category>
+-        <Not><Category>System</Category></Not>
+-      </And>
+-      <And>
+-        <Category>Settings</Category>
+-        <Category>X-GNOME-PersonalSettings</Category>
+-        <Not><Category>System</Category></Not>
+-      </And>
+-      <And>
+-        <Category>Settings</Category>
+-        <Category>X-GNOME-SystemSettings</Category>
+-        <Category>Archiving</Category>
+-      </And>
+-      <And>
+-        <Category>Settings</Category>
+-        <Category>Accessibility</Category>
+-      </And>
+-    </Include>
+-  </Menu>
+-
+-  <Menu>
+-    <Name>Look and Feel</Name>
+-    <Directory>mate-look-and-feel.directory</Directory>
+-    <Include>
+-      <And>
+-        <Category>Settings</Category>
+-        <Category>DesktopSettings</Category>
+-        <Not><Category>System</Category></Not>
+-        <Not><Category>Security</Category></Not>
+-      </And>
+-      <And>
+-        <Category>Settings</Category>
+-        <Category>Qt</Category>
+-        <Not><Category>System</Category></Not>
+-        <Not><Category>Security</Category></Not>
+-      </And>
+-    </Include>
+-  </Menu>
+-
+-  <Menu>
+-    <Name>Internet and Network</Name>
+-    <Directory>mate-internet-and-network.directory</Directory>
+-    <Include>
+-      <And>
+-        <Category>Settings</Category>
+-        <Category>X-MATE-NetworkSettings</Category>
+-        <Not><Category>System</Category></Not>
+-      </And>
+-      <And>
+-        <Category>Settings</Category>
+-        <Category>X-GNOME-NetworkSettings</Category>
+-        <Not><Category>System</Category></Not>
+-      </And>
+-      <And>
+-        <Category>Settings</Category>
+-        <Category>Security</Category>
+-        <Not><Category>System</Category></Not>
+-      </And>
+-    </Include>
+-  </Menu>
+-
+-  <Menu>
+-    <Name>Hardware</Name>
+-    <Directory>mate-hardware.directory</Directory>
+-    <Include>
+-      <And>
+-        <Category>Settings</Category>
+-        <Category>HardwareSettings</Category>
+-        <Not><Category>System</Category></Not>
+-      </And>
+-    </Include>
+-  </Menu>
+-
+-  <Menu>
+-    <Name>Other</Name>
+-    <Directory>mate-other.directory</Directory>
+-    <Include>
+-      <And>
+-        <Category>Settings</Category>
+-        <Not><Category>Accessibility</Category></Not>
+-        <Not><Category>System</Category></Not>
+-        <Not><Category>DesktopSettings</Category></Not>
+-        <Not><Category>HardwareSettings</Category></Not>
+-        <Not><Category>Security</Category></Not>
+-        <Not><Category>Archiving</Category></Not>
+-        <Not><Category>Qt</Category></Not>
+-        <Not><Category>X-MATE-NetworkSettings</Category></Not>
+-        <Not><Category>X-GNOME-NetworkSettings</Category></Not>
+-        <Not><Category>X-MATE-PersonalSettings</Category></Not>
+-        <Not><Category>X-GNOME-PersonalSettings</Category></Not>
+-      </And>
+-    </Include>
+-    <Exclude>
+-      <Filename>matecc.desktop</Filename>
+-    </Exclude>
+-  </Menu>
+-
+-  <Exclude>
+-    <Category>Settings</Category>
+-  </Exclude>
+-</Menu>
+-
+-- 
+2.7.3
+
