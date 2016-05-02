@@ -42,6 +42,7 @@ RDEPEND="
 	themes? (
 		=x11-themes/mate-backgrounds-${MATE_MV}*:0
 		=x11-themes/mate-icon-theme-${MATE_MV}*:0
+		=x11-themes/ambiant-mate-theme-9999
 	)
 
 	extras? (
